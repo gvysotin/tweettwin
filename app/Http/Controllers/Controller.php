@@ -18,3 +18,12 @@ class Controller extends BaseController
 //{
 //    //
 //}
+
+
+
+//namespace App\Http\Controllers;
+//
+//abstract class Controller
+//{
+//    //
+//}
