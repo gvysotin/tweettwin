@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Idea extends Model
+{
+    use HasFactory;
+
+    // protected $guarded = [
+    //     'id',
+    //     'created_at',
+    //     'updated_at',
+    // ];
+
+    // protected $with = ['user:id,name', 'comments.user']; // способ включить быструю загрузку для таких отношений, я использую метод with, чтобы не использовать метод without
+
+    protected $with = ['user:id,name,image', 'comments.user:id,name,image']; // способ включить быструю загрузку для таких отношений, я использую метод with, чтобы не использовать метод without
+
+
+    protected $withCount = ['likes'];
+
+    protected $fillable = [
+        "user_id",
+        'content',
+        // 'likes',
+    ];
+
+
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'idea_like', '','')->withTimestamps();
+    }
+
+    public function scopeSearch(Builder $query, $search = '')
+    {
+        // $query->where("content", "like", "%" . request()->get("search", "") . "%");
+        $query->where("content", "like", "%" . $search . "%");
+    }
+
+
+
+}
+
+
