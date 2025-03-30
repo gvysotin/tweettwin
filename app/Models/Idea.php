@@ -44,17 +44,17 @@ class Idea extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'idea_like', '','')->withTimestamps();
+        return $this->belongsToMany(User::class, 'idea_like', '', '')->withTimestamps();
     }
 
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $search
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeSearch(Builder $query, $search = '')
     {
         // $query->where("content", "like", "%" . request()->get("search", "") . "%");
         $query->where("content", "like", "%" . $search . "%");
     }
-
-
-
 }
-
-
