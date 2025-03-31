@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\WelcomeEmail;
 use App\Models\User;
+use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -40,7 +41,6 @@ class AuthController extends Controller
 
         Mail::to($user->email)->send(new WelcomeEmail($user));
 
-
         return redirect()->route('dashboard')->with('success', 'Account created successfully!');
     }
 
@@ -61,7 +61,7 @@ class AuthController extends Controller
             ]
         );
 
-        if(auth()->attempt($validated)) {
+        if(Auth::attempt($validated)) {
             request()->session()->regenerate();
 
             return redirect()->route('dashboard')->with('success','Logged is successfully');
@@ -75,7 +75,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        auth()->logout();
+        Auth::logout();
 
         request()->session()->invalidate();
         request()->session()->regenerateToken();

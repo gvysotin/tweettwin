@@ -8,6 +8,7 @@ use App\Models\Idea;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IdeaController extends Controller
 {
@@ -30,7 +31,7 @@ class IdeaController extends Controller
         // dd($zzz);
 
         $is_author = false;
-        if (auth()->id() == $idea->user_id) {
+        if (Auth::id() == $idea->user_id) {
             $is_author = true;
         }
 
@@ -66,7 +67,7 @@ class IdeaController extends Controller
         // $validated["user_password"] = auth()->user()->password;
         // dd($validated);
 
-        $validated["user_id"] = auth()->id();
+        $validated["user_id"] = Auth::id();
 
 
         // dump(request()->all());
@@ -82,7 +83,7 @@ class IdeaController extends Controller
         //     ]
         // );
 
-        return redirect()->route('dashboard')->with('success','Idea created succesfully');
+        return redirect()->route('dashboard')->with('success', 'Idea created succesfully');
 
 
         // if($idea->save()) {
@@ -109,8 +110,7 @@ class IdeaController extends Controller
 
         $idea->delete();
 
-        return redirect()->route("dashboard")->with("success","Idea deleted succesfully !!!");
-
+        return redirect()->route("dashboard")->with("success", "Idea deleted succesfully !!!");
     }
 
     public function edit(Idea $idea)
@@ -173,8 +173,7 @@ class IdeaController extends Controller
         $idea->update($validated);
 
 
-        return redirect()->route("ideas.show", $idea->id)->with("success","Idea updated succcessfully!!!");
+        return redirect()->route("ideas.show", $idea->id)->with("success", "Idea updated succcessfully!!!");
         // return view("ideas.show", compact("idea"));
     }
-
 }

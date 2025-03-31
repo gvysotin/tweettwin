@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'is_installing' => env('IS_INSTALLING', false),
+    'is_installing' => env('IS_INSTALLING', true),
 
     /*
     |--------------------------------------------------------------------------
