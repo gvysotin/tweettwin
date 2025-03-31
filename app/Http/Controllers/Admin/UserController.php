@@ -16,6 +16,7 @@ class UserController extends Controller
         $users = User::latest()->paginate(5);
 
         // dd($users);
+        //
 
         return view('admin.users.index', compact('users'));
 

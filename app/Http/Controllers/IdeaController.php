@@ -39,8 +39,6 @@ class IdeaController extends Controller
         // ->orderBy('ideas_count', 'DESC')
         // ->limit(5)->get();
 
-
-
         // return view("ideas.show", compact("idea", "is_author", "topUsers"));
         return view("ideas.show", compact("idea", "is_author"));
     }
@@ -106,6 +104,7 @@ class IdeaController extends Controller
         // if(auth()->id() !== $idea->user_id) {
         //     abort(404);
         // }
+
         $this->authorize('delete', $idea);
 
         $idea->delete();

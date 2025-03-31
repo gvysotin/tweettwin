@@ -17,6 +17,7 @@ class DashboardController extends Controller
         // if(Gate::denies('admin')) {
         //     abort(403);
         // }
+        //
 
         // $this->authorize('admin');
 

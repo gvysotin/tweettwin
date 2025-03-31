@@ -22,6 +22,7 @@ class DashboardController extends Controller
 
         //return "Дошли досюда, всё отлично работает!";
 
+//
 //        $ideas = Idea::all();
 //        if($ideas->count()==0) {
 //            // нет ни одного поста,

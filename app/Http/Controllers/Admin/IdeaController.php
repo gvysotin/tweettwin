@@ -14,6 +14,7 @@ class IdeaController extends Controller
         $ideas = Idea::latest()->paginate(10);
 
         // dd($ideas);
+        //
 
         return view('admin.ideas.index', compact('ideas'));
 

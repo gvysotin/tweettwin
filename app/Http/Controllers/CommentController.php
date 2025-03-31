@@ -27,6 +27,7 @@ class CommentController extends Controller
         // $arr [] = $validated['user_id'];
         // $arr [] = $validated['idea_id'];
         // dd($arr);
+        //
 
         $comment = new Comment;
         $comment->user_id = $validated['user_id'];

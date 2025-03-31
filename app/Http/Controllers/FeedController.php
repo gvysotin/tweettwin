@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeedController extends Controller
 {
@@ -12,7 +13,7 @@ class FeedController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $user = auth()->user(); // и это даст нам объект пользователя который вошел в систему
+        $user = Auth::user(); // и это даст нам объект пользователя который вошел в систему
 
         $followingIDs = $user->followings()->pluck('user_id');
 

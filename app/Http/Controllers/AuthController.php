@@ -52,6 +52,7 @@ class AuthController extends Controller
     public function authenticate()
     {
 
+        //
         //dd(request()->all());
 
         $validated = request()->validate(

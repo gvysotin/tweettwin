@@ -10,6 +10,7 @@ class IdeaLikeController extends Controller
 {
     public function like(Idea $idea)
     {
+        //
         $liker = Auth::user(); // находим аутентифицированного пользователя
 
         $liker->likes()->attach($idea);
@@ -20,8 +21,7 @@ class IdeaLikeController extends Controller
 
     public function unlike(Idea $idea)
     {
-
-
+        //
         $liker = Auth::user(); // находим аутентифицированного пользователя
 
         $liker->likes()->detach($idea);
