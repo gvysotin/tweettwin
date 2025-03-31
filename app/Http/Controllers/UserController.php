@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -17,6 +18,7 @@ class UserController extends Controller
     {
         $ideas = [];
 
+        //
         $ideas = $user->ideas()->paginate(5);
 
         return view("users.show", compact("user", "ideas"));
@@ -74,7 +76,8 @@ class UserController extends Controller
 
     public function profile()
     {
-        return $this->show(auth()->user());
+        //return $this->show(auth()->user());
+        return $this->show(Auth::user());
     }
 
     public function profile2(User $user)
