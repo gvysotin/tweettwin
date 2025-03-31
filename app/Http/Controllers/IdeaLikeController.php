@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IdeaLikeController extends Controller
 {
     public function like(Idea $idea)
     {
-        $liker = auth()->user(); // находим аутентифицированного пользователя
+        $liker = Auth::user(); // находим аутентифицированного пользователя
 
         $liker->likes()->attach($idea);
 
@@ -21,7 +22,7 @@ class IdeaLikeController extends Controller
     {
 
 
-        $liker = auth()->user(); // находим аутентифицированного пользователя
+        $liker = Auth::user(); // находим аутентифицированного пользователя
 
         $liker->likes()->detach($idea);
 
