@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateCommentRequest;
-use App\Models\Comment;
 use App\Models\Idea;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateCommentRequest;
 
 class CommentController extends Controller
 {
@@ -19,7 +20,7 @@ class CommentController extends Controller
         //     "content" => "required|min:3|max:240",
         // ]);
 
-        $validated['user_id'] = auth()->id();
+        $validated['user_id'] = Auth::id();
         $validated['idea_id'] = $idea->id;
 
         // $arr = [];

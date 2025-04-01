@@ -30,6 +30,7 @@ class DashboardController extends Controller
 
 
         $ideas = Idea::when(request()->has("search"), function (Builder $query) {
+            /** @var \Illuminate\Database\Eloquent\Builder|\App\Models\Idea $query */
             $query->search(request('search', ''));
         })->with('user:id,name,image', 'comments.user:id,name,image')->orderBy('created_at', 'DESC')->paginate(5);
 
