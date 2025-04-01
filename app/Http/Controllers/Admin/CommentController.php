@@ -15,7 +15,6 @@ class CommentController extends Controller
         $comments = Comment::with('user:id,name,image', 'idea:id')->latest()->paginate(15);
 
         // dd($comments);
-        //
 
         return view('admin.comments.index', compact('comments'));
 

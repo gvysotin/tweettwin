@@ -20,7 +20,6 @@ class Idea extends Model
 
     protected $with = ['user:id,name,image', 'comments.user:id,name,image']; // способ включить быструю загрузку для таких отношений, я использую метод with, чтобы не использовать метод without
 
-
     protected $withCount = ['likes'];
 
     protected $fillable = [
@@ -28,8 +27,6 @@ class Idea extends Model
         'content',
         // 'likes',
     ];
-
-
 
 
     public function comments()
