@@ -18,7 +18,6 @@ class UserController extends Controller
     {
         $ideas = [];
 
-        //
         $ideas = $user->ideas()->paginate(5);
 
         return view("users.show", compact("user", "ideas"));
