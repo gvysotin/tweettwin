@@ -19,18 +19,6 @@ use Illuminate\Support\Benchmark;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['middleware' => 'guest'], function () {
-
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-
-    Route::post('/register', [AuthController::class, 'store']);
-
-
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-    Route::post('/login', [AuthController::class, 'authenticate']);
-
-});
 
 
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
@@ -162,3 +150,20 @@ Route::get('/feed2', function() {
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
+
+
+// Route::group(['middleware' => 'guest'], function () {
+
+//     Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+//     Route::post('/register', [AuthController::class, 'store']);
+
+
+//     Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+//     Route::post('/login', [AuthController::class, 'authenticate']);
+
+// });
+
+require __DIR__.'/auth.php'; // Фишка Laravel 11, в предыдущем Laravel было по другому.
