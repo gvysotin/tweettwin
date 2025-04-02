@@ -54,4 +54,5 @@ class Idea extends Model
         // $query->where("content", "like", "%" . request()->get("search", "") . "%");
         $query->where("content", "like", "%" . $search . "%");
     }
+
 }
