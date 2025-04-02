@@ -31,11 +31,8 @@
 
                 </div>
             @empty
-
                 <div class="mt-3">
-
                     <p class="text-center mt-4">No results found.</p>
-
                 </div>
             @endforelse
 
