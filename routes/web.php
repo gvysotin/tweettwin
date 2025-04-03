@@ -92,7 +92,7 @@ Route::get('/terms', function () {
 })->name('terms');
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
-Route::get('/profile2/{user}', [UserController::class, 'profile2'])->middleware('auth')->name('profile2');
+// Route::get('/profile2/{user}', [UserController::class, 'profile2'])->middleware('auth')->name('profile2');
 
 Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
 Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');
@@ -151,19 +151,5 @@ Route::get('/feed2', function() {
 //    return view('welcome');
 //});
 
-
-
-// Route::group(['middleware' => 'guest'], function () {
-
-//     Route::get('/register', [AuthController::class, 'register'])->name('register');
-
-//     Route::post('/register', [AuthController::class, 'store']);
-
-
-//     Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-//     Route::post('/login', [AuthController::class, 'authenticate']);
-
-// });
 
 require __DIR__.'/auth.php'; // Фишка Laravel 11, в предыдущем Laravel было по другому.
