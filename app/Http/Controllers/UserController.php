@@ -80,6 +80,7 @@ class UserController extends Controller
 
     public function profile2(User $user)
     {
+        //
         return $this->show($user);
     }
 
