@@ -92,7 +92,7 @@ Route::get('/terms', function () {
 })->name('terms');
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
-// Route::get('/profile2/{user}', [UserController::class, 'profile2'])->middleware('auth')->name('profile2');
+Route::get('/profile2/{user}', [UserController::class, 'profile2'])->middleware('auth')->name('profile2');
 
 Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
 Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');

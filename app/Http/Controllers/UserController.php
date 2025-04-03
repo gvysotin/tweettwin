@@ -88,9 +88,9 @@ class UserController extends Controller
         return $this->show(Auth::user());
     }
 
-    // public function profile2(User $user)
-    // {
-    //     return $this->show($user);
-    // }
+    public function profile2(User $user)
+    {
+        return $this->show($user);
+    }
 
 }
