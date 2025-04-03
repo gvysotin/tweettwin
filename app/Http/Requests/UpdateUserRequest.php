@@ -32,6 +32,7 @@ class UpdateUserRequest extends FormRequest
             "name" => "required|min:5|max:40",
             "bio" => "required|min:1|max:255",
             "image" => "image"
+            // 'image' => 'image|mimes:jpeg,png|max:2048'
         ];
     }
 }

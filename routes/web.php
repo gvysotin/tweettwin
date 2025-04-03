@@ -152,18 +152,4 @@ Route::get('/feed2', function() {
 //});
 
 
-
-// Route::group(['middleware' => 'guest'], function () {
-
-//     Route::get('/register', [AuthController::class, 'register'])->name('register');
-
-//     Route::post('/register', [AuthController::class, 'store']);
-
-
-//     Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-//     Route::post('/login', [AuthController::class, 'authenticate']);
-
-// });
-
 require __DIR__.'/auth.php'; // Фишка Laravel 11, в предыдущем Laravel было по другому.

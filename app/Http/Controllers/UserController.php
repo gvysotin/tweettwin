@@ -65,6 +65,16 @@ class UserController extends Controller
             Storage::disk('public')->delete($user->image ?? '');
         }
 
+        // Нужно добавить обработку ошибок:
+        // try {
+        //     // код загрузки
+        // } catch (\Exception $e) {
+        //     Log::error('Image upload failed: '.$e->getMessage());
+        //     return back()->withError('Image upload failed');
+        // }
+
+
+
         $user->update($validated);
 
         return redirect()->route("profile2", $user->id)->with("success","User data has been successfully updated.");
@@ -80,7 +90,6 @@ class UserController extends Controller
 
     public function profile2(User $user)
     {
-        //
         return $this->show($user);
     }
 
