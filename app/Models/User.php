@@ -72,6 +72,7 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class,'follower_user', 'user_id', 'follower_id')->withTimestamps();
     }
 
+    // Метод для определения того подписаны ли мы на текущего пользователя или нет.
     public function follows(User $user)
     {
         //dd($this);
