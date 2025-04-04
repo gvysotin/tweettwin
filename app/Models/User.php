@@ -60,16 +60,19 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class)->latest();
     }
 
+    // Этот метод возвращает коллекцию пользователей, за которыми подписан текущий пользователь.
     public function followings()
     {
         return $this->belongsToMany(User::class,'follower_user', 'follower_id', 'user_id')->withTimestamps();
     }
 
+    // Этот метод возвращает коллекцию пользователей, которые подписаны на текущего пользователя.
     public function followers()
     {
         return $this->belongsToMany(User::class,'follower_user', 'user_id', 'follower_id')->withTimestamps();
     }
 
+    // Метод для определения того подписаны ли мы на текущего пользователя или нет.
     public function follows(User $user)
     {
         //dd($this);

@@ -14,7 +14,7 @@ class DashboardController extends Controller
     //
     public function index()
     {
-        // return new WelcomeEmail(auth()->user());
+        //return new WelcomeEmail(auth()->user());
 
         // $ideas = Idea::withCount(['likes'])->with('user:id,name,image', 'comments.user:id,name,image')->orderBy('created_at', 'DESC');
 

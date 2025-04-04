@@ -65,6 +65,12 @@ class AuthController extends Controller
         if(Auth::attempt($validated)) {
             request()->session()->regenerate();
 
+            // // Попытка отправить письмо при аутентификации. Проверка работы почты.
+            // $user = User::where('email', $validated['email'])->first();
+            // if ($user && Hash::check($validated['password'], $user->password)) {
+            //     Mail::to($user->email)->send(new WelcomeEmail($user));
+            // }
+
             return redirect()->route('dashboard')->with('success','Logged is successfully');
         }
 
