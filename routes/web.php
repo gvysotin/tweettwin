@@ -1,22 +1,23 @@
 <?php
 
-use App\Http\Controllers\Admin\CommentController as AdminCommentController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-
-use App\Http\Controllers\Admin\IdeaController as AdminIdeaController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
-
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FeedController;
-use App\Http\Controllers\FollowerController;
-use App\Http\Controllers\IdeaController;
-use App\Http\Controllers\IdeaLikeController;
-use App\Http\Controllers\UserController;
 use App\Models\Idea;
 use Illuminate\Support\Benchmark;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\IdeaLikeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\TestMiddleware1;
+use App\Http\Controllers\Admin\IdeaController as AdminIdeaController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 
 
@@ -131,6 +132,11 @@ Route::get('/feed2', function() {
     echo $aaa . "<br><br>" . $aaa2;
 
 });
+
+
+// Для теста middleware EnsureUserIsAdmin
+Route::get('/test_mw1', TestMiddleware1::class)->middleware('auth')->name('test_mw1');
+
 
 
 // Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
