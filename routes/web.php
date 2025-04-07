@@ -135,8 +135,17 @@ Route::get('/feed2', function() {
 
 
 // Для теста middleware EnsureUserIsAdmin
-Route::get('/test_mw1', TestMiddleware1::class)->middleware('auth')->name('test_mw1');
+//Route::get('/test_mw1', TestMiddleware1::class)->middleware('auth')->name('test_mw1');
 
+
+Route::get('/check-session', function () {
+    session(['test_key' => '123']);
+    return 'Session set';
+});
+
+Route::get('/check-session-get', function () {
+    return session('test_key', 'not found');
+});
 
 
 // Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
