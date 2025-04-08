@@ -16,6 +16,11 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
+        //dd('This is EnsureUserIsAdmin middleware');
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            abort(403, 'Access denied');
+        }
+
         return $next($request);
     }
 }

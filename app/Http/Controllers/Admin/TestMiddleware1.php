@@ -14,12 +14,12 @@ class TestMiddleware1 extends Controller
      */
     public function __invoke(Request $request)
     {
-        dd('Сработал метод __invoke');
-        // $user = Auth::user();
-        // if(!$user->is_admin) {
-        //     dd('Пользователь не админ');
-        //     abort(403);
-        // }
+        //dd('Сработал метод __invoke');
+        $user = Auth::user();
+
+        dump('Если мы дошли до сюда, пользователь админ, ниже объект $request');
+        dump($request);
+
 
         // $data = $request->all();
         // dump($data);
