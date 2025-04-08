@@ -147,6 +147,9 @@ Route::get('/check-session-get', function () {
     return session('test_key', 'not found');
 });
 
+Route::get('/env-check', function () {
+    return config('session.cookie');
+});
 
 // Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
 
