@@ -135,7 +135,7 @@ Route::get('/feed2', function() {
 
 
 // Для теста middleware EnsureUserIsAdmin
-Route::get('/test_mw1', TestMiddleware1::class)->middleware('admin')->name('test_mw1');
+Route::get('/test_mw1', TestMiddleware1::class)->middleware('test_mw1')->name('test_mw1');
 
 
 // Для проверки работы сессий. Из-за очередей через Redis ломались сессии в текущем проекте,

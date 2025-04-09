@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,11 +15,17 @@ class TestMiddleware1 extends Controller
      */
     public function __invoke(Request $request)
     {
-        //dd('Сработал метод __invoke');
-        $user = Auth::user();
 
-        dump('Если мы дошли до сюда, пользователь админ, ниже объект $request');
-        dump($request);
+        Log::info('inside TestMiddleware1 Controller');
+        //dd('Break');
+
+
+
+        // //dd('Сработал метод __invoke');
+        // $user = Auth::user();
+
+        // dump('Если мы дошли до сюда, пользователь админ, ниже объект $request');
+        // dump($request);
 
 
         // $data = $request->all();
