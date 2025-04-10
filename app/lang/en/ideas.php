@@ -3,6 +3,6 @@
 
 return [
 
-'login_to_share' => 'Login To Share yours ideas'
+'login_to_share' => 'Login To Share yours ideas',
 
 ];

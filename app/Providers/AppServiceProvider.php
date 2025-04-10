@@ -34,9 +34,10 @@ class AppServiceProvider extends ServiceProvider
             // и фраг IS_INSTALLING в .env поставлен false.
             Paginator::useBootstrapFive();
 
-        
-            // app()->setLocale('ru');
-            // App::setLocale('ru');
+
+            //app()->setLocale('ru');
+            //App::setLocale('ru');
+            app()->getLocale();
 
             // Проблема при установке проекта с нуля, ругается на кэш:
             // кэшируем топ-5 самых активных пользователей
