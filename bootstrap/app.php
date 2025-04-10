@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\SetLocale;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\EnsureUserIsAdmin;
@@ -14,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->web(append: [
+            SetLocale::class,
+        ]);
         $middleware->alias([
             //'auth' => Authenticate::class,
             'test_mw1' => EnsureUserIsAdmin::class,  // ✅ Ваш middleware
