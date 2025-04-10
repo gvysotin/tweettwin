@@ -22,11 +22,6 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 
 
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
-
-
-
-
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // Route::get('/', function() {

@@ -3,10 +3,11 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
             // Код ниже выполняется если приложение уже установлено
             // и фраг IS_INSTALLING в .env поставлен false.
             Paginator::useBootstrapFive();
+
+        
+            // app()->setLocale('ru');
+            // App::setLocale('ru');
 
             // Проблема при установке проекта с нуля, ругается на кэш:
             // кэшируем топ-5 самых активных пользователей
