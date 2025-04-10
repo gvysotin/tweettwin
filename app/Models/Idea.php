@@ -49,7 +49,7 @@ class Idea extends Model
      * @param string $search
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSearch(Builder $query, $search = '')
+    public function scopeSearch(Builder $query, $search = '') : void
     {
         // $query->where("content", "like", "%" . request()->get("search", "") . "%");
         $query->where("content", "like", "%" . $search . "%");
