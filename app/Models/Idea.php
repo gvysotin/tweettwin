@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Idea extends Model
 {
@@ -49,10 +50,9 @@ class Idea extends Model
      * @param string $search
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSearch(Builder $query, $search = '') : void
+    public function scopeSearch(Builder $query, $search = '') : Builder
     {
         // $query->where("content", "like", "%" . request()->get("search", "") . "%");
-        $query->where("content", "like", "%" . $search . "%");
+        return $query->where("content", "like", "%" . $search . "%");
     }
-
 }
