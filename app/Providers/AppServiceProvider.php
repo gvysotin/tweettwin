@@ -30,6 +30,11 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.is_installing')) {
             // Действия при установке приложения
         } else {
+
+           if (env('APP_DEBUG') == true) {
+               \Debugbar::enable();
+           }
+
             // Код ниже выполняется если приложение уже установлено
             // и фраг IS_INSTALLING в .env поставлен false.
             Paginator::useBootstrapFive();
@@ -59,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
 
             // Проблема при установке проекта с нуля, ругается на кэш:
             // кэшируем топ-5 самых активных пользователей
-            $topUsers = Cache::remember('topUsers', now()->addSeconds(10), function () {
+            $topUsers = Cache::remember('topUsers', now()->addSeconds(60), function () {
                 return User::withCount('ideas')
                     ->orderBy('ideas_count', 'DESC')
                     ->limit(5)->get();
