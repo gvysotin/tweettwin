@@ -34,12 +34,9 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->created_at->toDateString() }}</td>
                             <td>
-
                                 <a href="{{ route('users.show', $user->id) }}">View</a>
                                 <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-
                             </td>
-
                         </tr>
 
                     </tbody>
@@ -53,3 +50,4 @@
         </div>
     </div>
 @endsection
+
