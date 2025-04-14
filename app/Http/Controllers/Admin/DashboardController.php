@@ -26,7 +26,6 @@ class DashboardController extends Controller
         $totalComments = Comment::count();
 
 
-
         // Log::info('inside admin dashboard controller');
         return view(
             'admin.dashboard',
