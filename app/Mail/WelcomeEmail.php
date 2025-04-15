@@ -32,7 +32,6 @@ class WelcomeEmail extends Mailable
     {
         return new Envelope(
             subject: 'Thanks for joining ' . config('app.name', ''),
-
         );
     }
 
